@@ -20,6 +20,9 @@ importers:
 
   api:
     dependencies:
+      '@fastify/helmet':
+        specifier: ^11.1.1
+        version: 11.1.1
       '@fastify/static':
         specifier: ^6.11.2
         version: 6.11.2
@@ -826,6 +829,13 @@ packages:
     dependencies:
       fast-querystring: 1.1.2
       fastify-plugin: 4.5.1
+    dev: false
+
+  /@fastify/helmet@11.1.1:
+    resolution: {integrity: sha512-pjJxjk6SLEimITWadtYIXt6wBMfFC1I6OQyH/jYVCqSAn36sgAIFjeNiibHtifjCd+e25442pObis3Rjtame6A==}
+    dependencies:
+      fastify-plugin: 4.5.1
+      helmet: 7.0.0
     dev: false
 
   /@fastify/middie@8.3.0:
@@ -3628,6 +3638,11 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
+
+  /helmet@7.0.0:
+    resolution: {integrity: sha512-MsIgYmdBh460ZZ8cJC81q4XJknjG567wzEmv46WOBblDb6TUd3z8/GhgmsM9pn8g2B80tAJ4m5/d3Bi1KrSUBQ==}
+    engines: {node: '>=16.0.0'}
+    dev: false
 
   /hexoid@1.0.0:
     resolution: {integrity: sha512-QFLV0taWQOZtvIRIAdBChesmogZrtuXvVWsFHZTk2SU+anspqZ2vMnoLg7IE1+Uk16N19APic1BuF8bC8c2m5g==}

@@ -5,6 +5,7 @@ A Node.JS API which utilises:
 - [NestJS](https://nestjs.com/) framework
 - [TypeORM](https://typeorm.io/) for database access and migrations
 - [PostgreSQL](https://www.postgresql.org/) database
+- [Helmet](https://helmetjs.github.io/) for security
 - [Jest](https://jestjs.io/) for unit and e2e testing
 - [pnpm](https://pnpm.io/) for package management
 - [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) for linting and code formatting
