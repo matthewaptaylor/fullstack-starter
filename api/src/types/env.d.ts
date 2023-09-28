@@ -2,6 +2,7 @@
 namespace NodeJS {
   declare interface ProcessEnv {
     NODE_ENV: string | null;
+    API_NAME: string;
     POSTGRES_HOST: string;
     POSTGRES_PORT: string;
     POSTGRES_USER: string;

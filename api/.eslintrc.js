@@ -28,6 +28,7 @@ module.exports = {
       'warn',
       { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
     ],
+    'jsdoc/require-param-type': 'off',
     'jsdoc/require-returns-type': 'off',
   },
 };

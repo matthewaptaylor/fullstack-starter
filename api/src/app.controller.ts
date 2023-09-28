@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from '@/app.service';
-import { CreateUserDto } from '@/dtos/CreateUserDto';
+import { CreateUserDto } from '@/CreateUser.dto';
 
 @Controller()
 export class AppController {
@@ -11,6 +11,11 @@ export class AppController {
     return this.appService.getHello();
   }
 
+  /**
+   * Returns a stringified version of the CreateUserDto object.
+   * @param createUserDto The CreateUserDto object.
+   * @returns A stringified version of the CreateUserDto object.
+   */
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
     return JSON.stringify(createUserDto);
