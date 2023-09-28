@@ -21,7 +21,7 @@ pnpm-debug.log*
 .env.prod
 
 # Database
-/pgdata-dev
+/pgdata
 
 # Utils
 temp-key.txt
