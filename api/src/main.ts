@@ -5,6 +5,7 @@ import {
 } from '@nestjs/platform-fastify';
 import helmet from '@fastify/helmet';
 import { ValidationPipe } from '@nestjs/common';
+import * as fs from 'fs';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from '@/app.module';
 
@@ -42,6 +43,7 @@ const bootstrap = async () => {
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
+  fs.writeFileSync('./openapi.json', JSON.stringify(document));
   SwaggerModule.setup('api', app, document);
 
   await app.listen(3000);
