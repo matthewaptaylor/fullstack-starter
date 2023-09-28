@@ -1,0 +1,17 @@
+{
+  "name": "fullstack-starter",
+  "version": "0.0.1",
+  "description": "A fullstack starter kit for building a web app with NestJS and PostgreSQL",
+  "author": "Matthew Taylor",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "commitlint": "commitlint -e $GIT_PARAMS",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7",
+    "husky": "^8.0.3"
+  }
+}

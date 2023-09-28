@@ -1,0 +1,47 @@
+name: test
+
+on: pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres
+        # Provide the password for postgres
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: 5432
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          # Maps tcp port 5432 on service container to the host
+          - 5432:5432
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set .env and .env.dev files
+        run: |
+          echo $ENV_FILE > api/.env
+          echo $ENV_DEV_FILE > api/.env.dev
+          touch api/.env.prod
+        env:
+          ENV_FILE: ${{ secrets.ENV_FILE }}
+          ENV_DEV_FILE: ${{ secrets.ENV_DEV_FILE }}
+
+      - name: Run tests
+        run: docker compose run --rm test-api pnpm run test
+
+      - name: Cleanup
+        if: always()
+        run: docker-compose down
