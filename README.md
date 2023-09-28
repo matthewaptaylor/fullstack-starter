@@ -1,7 +1,11 @@
 # fullstack-starter
 
-## Installation
+## Setup
+
+Install dependencies for all packages:
 
 ```bash
-pnpm install # install dependencies for all packages
+pnpm install
 ```
+
+Then run the setup instructions for each package.

@@ -1,10 +1,10 @@
 # fullstack-starter-api
 
-## Installation
+## Setup
 
-```bash
-pnpm install
-```
+Follow the setup instructions in the [root README.md](../README.md#Setup).
+
+Copy template.env, template.env.dev, and template.env.prod to .env, .env.dev, and .env.prod respectively. Then fill in the values.
 
 ## Running the app
 
