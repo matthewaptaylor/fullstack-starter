@@ -10,6 +10,25 @@ export class UsersService {
     private usersRepository: Repository<User>,
   ) {}
 
+  /**
+   * Create a new user.
+   * @param email
+   * @param password
+   * @param fullName
+   * @returns The created user's ID, or null if a user with the same email already exists.
+   */
+  async create(email: string, password: string, fullName: string) {
+    try {
+      return (await this.usersRepository.insert({ email, password, fullName }))
+        .identifiers[0].id as number;
+    } catch (e) {
+      if (typeof e === 'object' && e && 'code' in e && e.code === '23505')
+        return null; // Duplicate entry
+
+      throw e;
+    }
+  }
+
   async findOne(email: string) {
     return this.usersRepository.findOne({ where: { email } });
   }
