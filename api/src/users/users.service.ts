@@ -13,14 +13,19 @@ export class UsersService {
   /**
    * Create a new user.
    * @param email
-   * @param password
+   * @param passwordHash
    * @param fullName
    * @returns The created user's ID, or null if a user with the same email already exists.
    */
-  async create(email: string, password: string, fullName: string) {
+  async create(email: string, passwordHash: string, fullName: string) {
     try {
-      return (await this.usersRepository.insert({ email, password, fullName }))
-        .identifiers[0].id as number;
+      return (
+        await this.usersRepository.insert({
+          email,
+          passwordHash,
+          fullName,
+        })
+      ).identifiers[0].id as number;
     } catch (e) {
       if (typeof e === 'object' && e && 'code' in e && e.code === '23505')
         return null; // Duplicate entry
