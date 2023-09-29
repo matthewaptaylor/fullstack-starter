@@ -8,8 +8,11 @@ import { ValidationPipe } from '@nestjs/common';
 import * as fs from 'fs';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from '@/app.module';
+import setupEnv from '@/setupEnv';
 
 const bootstrap = async () => {
+  setupEnv();
+
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter({

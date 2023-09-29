@@ -63,18 +63,18 @@ When you add or remove API endpoints, the Swagger documentation endpoint /api wi
 There are two ways to create migrations:
 
 ```bash
-pnpm run migration:create migrations/<migration-name> # create a migration file to manually edit
-pnpm run migration:generate migrations/<migration-name> # generate a migration file automatically
+NODE_ENV=development pnpm run migration:create migrations/<migration-name> # create a migration file to manually edit
+NODE_ENV=development pnpm run migration:generate migrations/<migration-name> # generate a migration file automatically
 ```
 
 To run migrations:
 
 ```bash
-pnpm run migration:run
+NODE_ENV=development pnpm run migration:run
 ```
 
 To revert migrations:
 
 ```bash
-pnpm run migration:revert
+NODE_ENV=development pnpm run migration:revert
 ```

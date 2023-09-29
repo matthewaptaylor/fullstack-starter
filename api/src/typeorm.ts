@@ -1,15 +1,11 @@
-import { registerAs } from '@nestjs/config';
+import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { DataSource, DataSourceOptions } from 'typeorm';
-import * as dotenv from 'dotenv';
+import setupEnv from '@/setupEnv';
 
-const createConfig = () => {
-  if (!Object.keys(process.env).some((key) => key.startsWith('POSTGRES_'))) {
+export const createTypeOrmConfig = (): TypeOrmModuleOptions => {
+  if (!process.env.SETUP_ENV_CALLED)
     // Load environment variables if no postgres environment variables are set
-    dotenv.config({
-      path: process.env.NODE_ENV === 'development' ? '.env.dev' : '.env.prod',
-    });
-    dotenv.config({ path: '.env' });
-  }
+    setupEnv();
 
   return {
     type: 'postgres',
@@ -25,6 +21,4 @@ const createConfig = () => {
   };
 };
 
-export const TypeOrmConfig = registerAs('typeorm', createConfig);
-
-export default new DataSource(createConfig() as DataSourceOptions);
+export default new DataSource(createTypeOrmConfig() as DataSourceOptions);
