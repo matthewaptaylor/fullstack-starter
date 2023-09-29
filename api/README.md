@@ -54,6 +54,27 @@ If you add or remove environment variables, you will need to update the followin
 - `template.env.prod`
 - `src/types/env.d.ts`
 
-# Updating the API endpoints
+## Updating the API endpoints
 
 When you add or remove API endpoints, the Swagger documentation endpoint /api will be automatically updated. This infers the API endpoints from the NestJS decorators and comments on DTOs and controller methods.
+
+## Migrations
+
+There are two ways to create migrations:
+
+```bash
+pnpm run migration:create migrations/<migration-name> # create a migration file to manually edit
+pnpm run migration:generate migrations/<migration-name> # generate a migration file automatically
+```
+
+To run migrations:
+
+```bash
+pnpm run migration:run
+```
+
+To revert migrations:
+
+```bash
+pnpm run migration:revert
+```

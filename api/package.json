@@ -20,7 +20,12 @@
     "test:watch": "NODE_ENV=development jest --watch",
     "test:cov": "NODE_ENV=development jest --coverage",
     "test:debug": "NODE_ENV=development node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "NODE_ENV=development jest --config ./test/jest-e2e.json"
+    "test:e2e": "NODE_ENV=development jest --config ./test/jest-e2e.json",
+    "typeorm": "node node_modules/typeorm/cli",
+    "migration:run": "npm run typeorm migration:run -- -d dist/src/typeorm.js",
+    "migration:generate": "npm run typeorm migration:generate -- -d ./dist/src/typeorm.js",
+    "migration:create": "npm run typeorm migration:create",
+    "migration:revert": "npm run typeorm migration:revert -- -d dist/src/typeorm.js"
   },
   "dependencies": {
     "@fastify/helmet": "^11.1.1",
@@ -50,6 +55,7 @@
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.59.11",
     "@typescript-eslint/parser": "^5.59.11",
+    "dotenv": "^16.3.1",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-jest": "^27.4.0",
