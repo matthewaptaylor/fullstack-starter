@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "gen:axios-api": "openapi-generator-cli generate -g typescript-axios -i ./api/openapi.json -o ./axios-api --additional-properties=npmName=fullstack-starter-axios-api,supportsES6=true",
+    "gen:axios": "openapi-generator-cli generate -g typescript-axios -i ./api/openapi.json -o ./axios-api-client --additional-properties=npmName=fullstack-starter-axios-api-client,supportsES6=true",
     "commitlint": "commitlint -e $GIT_PARAMS",
     "prepare": "husky install"
   },
