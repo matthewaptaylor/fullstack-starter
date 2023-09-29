@@ -29,6 +29,8 @@ module.exports = {
       { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
     ],
     'jsdoc/require-param-type': 'off',
+    'jsdoc/require-param-description': 'off',
     'jsdoc/require-returns-type': 'off',
+    'jsdoc/require-returns-description': 'off',
   },
 };
