@@ -8,7 +8,11 @@ import { createTypeOrmConfig } from '@/typeorm';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(createTypeOrmConfig()),
+    TypeOrmModule.forRoot({
+      ...createTypeOrmConfig(),
+      synchronize: process.env.NODE_ENV === 'development',
+      autoLoadEntities: true,
+    }),
     AuthModule,
     UsersModule,
   ],

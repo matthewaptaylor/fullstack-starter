@@ -9,10 +9,10 @@ export class AuthController {
   /**
    * Sign in with an email and password.
    * @param signInDto
-   * @returns
+   * @returns An access token.
    */
   @HttpCode(HttpStatus.OK)
-  @Post('login')
+  @Post('signin')
   signIn(@Body() signInDto: SignInDto) {
     return this.authService.signIn(signInDto.email, signInDto.password);
   }

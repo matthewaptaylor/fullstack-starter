@@ -2,6 +2,10 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import setupEnv from '@/setupEnv';
 
+/**
+ * Create a TypeORM configuration object.
+ * @returns TypeORM configuration object.
+ */
 export const createTypeOrmConfig = (): TypeOrmModuleOptions => {
   if (!process.env.SETUP_ENV_CALLED)
     // Load environment variables if no postgres environment variables are set
@@ -16,9 +20,10 @@ export const createTypeOrmConfig = (): TypeOrmModuleOptions => {
     database: process.env.POSTGRES_DB,
     entities: ['dist/src/**/*.entity.js'],
     migrations: ['dist/migrations/*.js'],
-    synchronize: process.env.NODE_ENV === 'development',
-    autoLoadEntities: true,
   };
 };
 
+/**
+ * Create a TypeORM data source. This is used by the TypeORM CLI.
+ */
 export default new DataSource(createTypeOrmConfig() as DataSourceOptions);
