@@ -20,7 +20,7 @@
     "test:watch": "NODE_ENV=testing jest --watch",
     "test:cov": "NODE_ENV=testing jest --coverage",
     "test:debug": "NODE_ENV=testing node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "NODE_ENV=testing jest --config ./test/e2e/jest-e2e.json",
+    "test:e2e": "NODE_ENV=testing jest --config ./test/e2e/jest-e2e.json --runInBand=true",
     "typeorm": "node node_modules/typeorm/cli",
     "migration:run": "npm run typeorm migration:run -- -d dist/src/typeorm.js",
     "migration:generate": "npm run typeorm migration:generate -- -d ./dist/src/typeorm.js",
