@@ -15,6 +15,7 @@ import { AuthService } from './auth.service';
 import { RegisterDto } from './Register.dto';
 import { SignInDto } from './SignIn.dto';
 import { AccessTokenDto } from './AccessToken.dto';
+import { Public } from './Public';
 
 @Controller('auth')
 export class AuthController {
@@ -29,6 +30,7 @@ export class AuthController {
   @ApiUnprocessableEntityResponse({
     description: 'Email already exists.',
   })
+  @Public()
   @Post('register')
   async register(@Body() registerDto: RegisterDto): Promise<AccessTokenDto> {
     const token = await this.authService.register(
@@ -52,6 +54,7 @@ export class AuthController {
   @ApiUnauthorizedResponse({
     description: 'Invalid email or password.',
   })
+  @Public()
   @Post('signin')
   async signIn(@Body() signInDto: SignInDto): Promise<AccessTokenDto> {
     const token = await this.authService.signIn(
