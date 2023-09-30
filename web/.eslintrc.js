@@ -1,4 +1,4 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: ["next/babel", "next/core-web-vitals"],
+  extends: ['plugin:@next/next/recommended', 'prettier'],
 };
