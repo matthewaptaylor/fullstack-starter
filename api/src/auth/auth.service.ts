@@ -13,10 +13,7 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  private async signToken(
-    userId: number,
-    email: string,
-  ): Promise<AccessTokenDto> {
+  async signToken(userId: number, email: string): Promise<AccessTokenDto> {
     return {
       access_token: await this.jwtService.signAsync({
         sub: userId,
@@ -30,33 +27,26 @@ export class AuthService {
    * @param email
    * @param password
    * @param fullName
-   * @returns A JWT, or null if a user with the same email already exists.
+   * @returns The user's ID, or null if the email already exists.
    */
   async register(email: string, password: string, fullName: string) {
     const passwordHash = await bcrypt.hash(password, this.SALT_ROUNDS);
 
-    const userId = await this.usersService.create(
-      email,
-      passwordHash,
-      fullName,
-    );
-
-    if (userId === null) return null;
-    return this.signToken(userId, email);
+    return this.usersService.create(email, passwordHash, fullName);
   }
 
   /**
-   * Validate a user's credentials and return a JWT.
+   * Validate a user's credentials.
    * @param email
    * @param password
-   * @returns A JWT, or null if the credentials are invalid.
+   * @returns The user if the credentials are valid, or null if they are not.
    */
-  async signIn(email: string, password: string) {
+  async validateUser(email: string, password: string) {
     const user = await this.usersService.findOneByEmail(email);
 
     if (user === null || !(await bcrypt.compare(password, user.passwordHash)))
       return null; // Invalid credentials
 
-    return this.signToken(user.id, user.email);
+    return user;
   }
 }

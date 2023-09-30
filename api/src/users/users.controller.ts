@@ -4,7 +4,7 @@ import {
   Request,
   InternalServerErrorException,
 } from '@nestjs/common';
-import { Request as ExpressRequest } from 'express';
+import { AuthenticatedRequest } from '@/types/Request';
 import { UsersService } from './users.service';
 
 @Controller('users')
@@ -17,7 +17,7 @@ export class UsersController {
    * @returns The currently authenticated user.
    */
   @Get('me')
-  me(@Request() request: ExpressRequest) {
+  me(@Request() request: AuthenticatedRequest) {
     if (request.user === undefined) throw new InternalServerErrorException(); // Satifies TypeScript
 
     return this.usersService.findOne(request.user.sub);
