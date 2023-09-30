@@ -20,7 +20,7 @@ It will soon include:
 
 Follow the setup instructions in the [root README.md](../README.md#Setup).
 
-Copy template.env, template.env.dev, and template.env.prod to .env, .env.dev, and .env.prod respectively. Then fill in the values.
+Copy template.env, template.env.dev, template.env.test, and template.env.prod to .env, .env.dev, .env.test, and .env.prod respectively. Then fill in the values.
 
 Install [Docker Desktop](https://docs.docker.com/get-docker/) to run the development database.
 
@@ -51,6 +51,7 @@ If you add or remove environment variables, you will need to update the followin
 
 - `template.env`
 - `template.env.dev`
+- `template.env.test`
 - `template.env.prod`
 - `src/types/env.d.ts`
 

@@ -18,10 +18,12 @@ pnpm-debug.log*
 # Environment variables
 .env
 .env.dev
+.env.test
 .env.prod
 
 # Database
-/pgdata
+/pgdata-dev
+/pgdata-test
 
 # Utils
 temp-key.txt

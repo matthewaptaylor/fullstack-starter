@@ -26,7 +26,7 @@ export class AuthController {
    * @param registerDto
    * @returns An access token.
    */
-  @HttpCode(HttpStatus.OK)
+  @HttpCode(HttpStatus.CREATED)
   @ApiUnprocessableEntityResponse({
     description: 'Email already exists.',
   })
