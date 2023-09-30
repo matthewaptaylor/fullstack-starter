@@ -4,9 +4,9 @@ A web app which utilises:
 
 - [Next.js](https://nextjs.org/) framework
 - [Tailwind CSS](https://tailwindcss.com/) for styling
-- [Less](http://lesscss.org/) for CSS preprocessing
+- [SCSS](https://sass-lang.com/) for CSS preprocessing
 - [PostCSS](https://postcss.org/) for CSS postprocessing
-- [Radix UI](https://www.radix-ui.com/) for UI components
+- [React Aria](https://react-spectrum.adobe.com/react-aria/index.html) for accessibility
 - [ESLint](https://eslint.org/) for linting
 - [Prettier](https://prettier.io/) for code formatting
 
