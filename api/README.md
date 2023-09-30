@@ -11,9 +11,6 @@ A Node.JS API which utilises:
 - [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) for linting and code formatting
 - [Commitlint](https://commitlint.js.org/#/) with [Husky](https://typicode.github.io/husky/#/)
 - [GitHub Actions](https://github.com/features/actions) for commit linting, unit testing, and e2e testing
-
-It will soon include:
-
 - [Swagger](https://swagger.io/) for API documentation
 
 ## Setup
