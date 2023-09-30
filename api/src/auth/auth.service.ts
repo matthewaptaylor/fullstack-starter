@@ -52,7 +52,7 @@ export class AuthService {
    * @returns A JWT, or null if the credentials are invalid.
    */
   async signIn(email: string, password: string) {
-    const user = await this.usersService.findOne(email);
+    const user = await this.usersService.findOneByEmail(email);
 
     if (user === null || !(await bcrypt.compare(password, user.passwordHash)))
       return null; // Invalid credentials

@@ -5,9 +5,11 @@ import { AppService } from '@/app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { createTypeOrmConfig } from '@/typeorm';
+import { CoreModule } from './core/core.module';
 
 @Module({
   imports: [
+    CoreModule,
     TypeOrmModule.forRoot({
       ...createTypeOrmConfig(),
       synchronize: process.env.NODE_ENV === 'development',
@@ -15,6 +17,7 @@ import { createTypeOrmConfig } from '@/typeorm';
     }),
     AuthModule,
     UsersModule,
+    CoreModule,
   ],
   controllers: [AppController],
   providers: [AppService],
