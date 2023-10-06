@@ -1,4 +1,3 @@
 packages:
-  - api
-  - axios-api-client
-  - web
+  - "apps/*"
+  - "packages/*"

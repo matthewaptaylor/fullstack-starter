@@ -1,18 +1,12 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "declaration": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "target": "ES6",
-    "module": "commonjs",
-    "noImplicitAny": true,
+    "declaration": true,
     "outDir": "dist",
-    "rootDir": ".",
-    "moduleResolution": "node",
-    "typeRoots": [
-      "node_modules/@types"
-    ]
+    "rootDir": "."
   },
-  "exclude": [
-    "dist",
-    "node_modules"
-  ]
+  "exclude": ["dist", "node_modules"]
 }
