@@ -1,33 +1,12 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    project: 'tsconfig.json',
-    tsconfigRootDir: __dirname,
-    sourceType: 'module',
-  },
-  plugins: ['@typescript-eslint/eslint-plugin', 'jsdoc', 'jest'],
-  extends: [
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-    'plugin:jsdoc/recommended',
-    'plugin:jest/recommended',
-  ],
-  root: true,
+  plugins: ['jsdoc', 'jest'],
+  extends: ['plugin:jsdoc/recommended', 'plugin:jest/recommended'],
   env: {
     node: true,
     jest: true,
   },
-  ignorePatterns: ['.eslintrc.js', 'dist', 'node_modules'],
   rules: {
-    '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-unused-vars': [
-      'warn',
-      { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
-    ],
     'jsdoc/require-param-type': 'off',
     'jsdoc/require-param-description': 'off',
     'jsdoc/require-returns-type': 'off',

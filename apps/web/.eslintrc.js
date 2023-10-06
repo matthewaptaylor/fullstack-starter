@@ -1,4 +1,4 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: ['plugin:@next/next/recommended', 'prettier'],
+  extends: ['plugin:@next/next/recommended'],
 };
