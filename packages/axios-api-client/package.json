@@ -9,8 +9,10 @@
   "types": "./dist/index.d.ts",
   "sideEffects": false,
   "scripts": {
+    "gen": "openapi-generator-cli generate -g typescript-axios -i ../../apps/api/openapi.json -o ./ --additional-properties=npmName=fullstack-starter-axios-api-client,supportsES6=true && pnpm run lint && pnpm run format && pnpm run build",
     "build": "tsc",
-    "prepare": "npm run build"
+    "lint": "eslint --fix *.ts",
+    "format": "prettier --write *.ts"
   },
   "dependencies": {
     "axios": "^0.27.2"

@@ -25,16 +25,17 @@ Install [Docker Desktop](https://docs.docker.com/get-docker/) to run the develop
 
 ```bash
 pnpm run dev # development watch mode
-pnpm run db # start dev database
+pnpm run db:dev # start dev database
 
-pnpm run start # development mode
-
-pnpm run start:prod # production mode
+pnpm run build
+pnpm run start # start production mode
 ```
 
 ## Test
 
 ```bash
+pnpm run db:test # start test database
+
 pnpm run test # unit tests
 
 pnpm run test:e2e # e2e tests
